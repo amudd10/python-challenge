@@ -30,8 +30,7 @@ with open(csv_path, "r") as csvfile:
     winner_count = max(vote_count)
     winner = diff_cand[vote_count.index(winner_count)]
 
-#defining total votes
-total_voting = len(candidate_li)
+
 
 # print(winner_count)
 
@@ -48,14 +47,16 @@ total_voting = len(candidate_li)
 # --------------------
 # The winner is: {winner}
 # --------------------""")
+
 #Printing results to text file
 with open('PyPoll_analysis.txt', 'w') as text:
     text.write("Election Results\n")
     text.write("--------------------\n")
-    text.write("Total Vote: " + total_voting + "\n")
+    text.write(f'Total Vote: {total_votes}\n')
     text.write("--------------------\n")
     for j in range(len(diff_cand)):
-        text.write(diff_cand[j] + ": " + str(vote_perc[j]) + "% (" + str(vote_count[j]) + ")")
+        text.write(f"{diff_cand[j]} : {(vote_perc[j]):.3f}% Vote Count: {(vote_count[j])}\n")
     text.write("--------------------\n")
     text.write("The winner is: " + winner + "\n")
     text.write("--------------------\n")
+
